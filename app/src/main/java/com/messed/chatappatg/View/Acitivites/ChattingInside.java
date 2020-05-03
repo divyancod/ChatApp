@@ -54,7 +54,7 @@ public class ChattingInside extends AppCompatActivity {
         user = getIntent().getStringExtra("username");
         userkey = getIntent().getStringExtra("userkey");
         progressDialog = new ProgressDialog(this);
-        Toast.makeText(this, userkey, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, userkey, Toast.LENGTH_SHORT).show();
         t1 = findViewById(R.id.textview001);
         t1.setText(user);
         e1 = findViewById(R.id.messageInput);
@@ -104,11 +104,12 @@ public class ChattingInside extends AppCompatActivity {
                     hashMap.put("type", "received");
                     hashMap.put("time", msgtime);
                     reference.push().setValue(hashMap); // -------for receiver
+
                 }
             }
         });
     }
-
+//-------------------------------Getting all chats-----------------------------------------------------------
     public void getAllChats() {
         final ChattingInsideViewModel chattingInsideViewModel = new ChattingInsideViewModel(user);
         chattingInsideViewModel.getChats().observe(ChattingInside.this, new Observer<List<ChatInside>>() {

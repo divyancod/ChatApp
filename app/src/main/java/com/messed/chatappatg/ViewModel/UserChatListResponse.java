@@ -23,28 +23,27 @@ public class UserChatListResponse {
        final MutableLiveData<List<UserChatList>> liveData = new MutableLiveData<>();
 
         FirebaseAuth firebaseAuth;
-        DatabaseReference reference, dbref;
-        FirebaseDatabase database;
+        DatabaseReference reference;
+        final FirebaseDatabase database;
         database = FirebaseDatabase.getInstance();
         firebaseAuth = FirebaseAuth.getInstance();
         reference = database.getReference().child(firebaseAuth.getUid()).child("friends");
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                String s,s1;
+                String user,userkey;
                 List<UserChatList> userinfo=new ArrayList<>();
                 for (DataSnapshot data : dataSnapshot.getChildren()) {
                     for (DataSnapshot dataSnapshot1 : data.getChildren()) {
-                        s = dataSnapshot1.getKey();
-                        s1=dataSnapshot1.getValue().toString();
-                        userinfo.add(new UserChatList(s,s1));
+                        user = dataSnapshot1.getKey();
+                        userkey=dataSnapshot1.getValue().toString();
+                        userinfo.add(new UserChatList(user,userkey));
                         //userkey.add(dataSnapshot1.getValue().toString());
                         Log.e(TAG, "onDataChange: " + dataSnapshot1.getKey());
                     }
                 }
                 liveData.setValue(userinfo);
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 

@@ -61,7 +61,7 @@ public class UserScreen extends Fragment {
         t1=view.findViewById(R.id.tvonline);
         progressDialog=new ProgressDialog(getActivity());
         showChat();
-        //getSelfName();
+        getSelfName();
 
         return view;
     }
@@ -69,7 +69,8 @@ public class UserScreen extends Fragment {
     //-----------------------getting self name-------------------------------------------------------------------------------
     void getSelfName()
     {
-
+        firebaseAuth=FirebaseAuth.getInstance();
+        database=FirebaseDatabase.getInstance();
         reference = database.getReference(firebaseAuth.getUid());
         reference.addValueEventListener(new ValueEventListener() {
             @Override

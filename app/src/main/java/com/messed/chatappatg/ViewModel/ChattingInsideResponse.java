@@ -28,7 +28,7 @@ public class ChattingInsideResponse {
         firebaseAuth = FirebaseAuth.getInstance();
         reference = database.getReference(firebaseAuth.getUid());
         reference = database.getReference(firebaseAuth.getUid()).child("message").child(user);
-        reference.addListenerForSingleValueEvent(new ValueEventListener() {
+        reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 List<ChatInside> chatInside = new ArrayList<>();
@@ -62,7 +62,7 @@ public class ChattingInsideResponse {
         database = FirebaseDatabase.getInstance();
         firebaseAuth = FirebaseAuth.getInstance();
         reference = database.getReference("group").child("message");
-        reference.addListenerForSingleValueEvent(new ValueEventListener() {
+        reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 List<ChatInside> groupChatInside = new ArrayList<>();

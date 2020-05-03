@@ -2,12 +2,15 @@ package com.messed.chatappatg.View.Adapters;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.messed.chatappatg.Model.ChatInside;
@@ -43,10 +46,12 @@ public class ChattingInsideAdapter extends RecyclerView.Adapter<ChattingInsideAd
         if (chatInsides.get(position).getType().equals("received")) {
             holder.t1.setTextColor(Color.RED);
             holder.t1.setText("You "+chatInsides.get(position).getType());
+
         }
         else if (chatInsides.get(position).getType().equals("send")) {
            holder.t1.setTextColor(Color.BLUE);
            holder.t1.setText("You "+chatInsides.get(position).getType());
+           holder.t2.setGravity(Gravity.RIGHT);
         }
         else
         {
@@ -65,12 +70,15 @@ public class ChattingInsideAdapter extends RecyclerView.Adapter<ChattingInsideAd
 
     public class ChatInsideHolder extends RecyclerView.ViewHolder {
         TextView t1, t2,t3;
+        CardView c1;
 
         public ChatInsideHolder(@NonNull View itemView) {
             super(itemView);
             t1 = itemView.findViewById(R.id.textview01);
             t2 = itemView.findViewById(R.id.textview02);
             t3=itemView.findViewById(R.id.typetxt3);
+            c1=itemView.findViewById(R.id.cardviewchat);
+
         }
     }
 }
