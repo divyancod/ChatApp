@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -20,12 +21,12 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.messed.chatappatg.Model.UserChatList;
 import com.messed.chatappatg.R;
-import com.messed.chatappatg.View.Adapters.UserScreenAdapter;
+import com.messed.chatappatg.View.Adapters.ChatListAdapter;
+import com.messed.chatappatg.ViewModel.UserChatListViewModel;
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
+import java.util.List;
 
 
 /**
@@ -44,7 +45,6 @@ public class UserScreen extends Fragment {
     TextView t1;
 
     public UserScreen() {
-        // Required empty public constructor
     }
 
     @Override
@@ -59,42 +59,10 @@ public class UserScreen extends Fragment {
         recyclerView = view.findViewById(R.id.rv01);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         t1=view.findViewById(R.id.tvonline);
-        database = FirebaseDatabase.getInstance();
-        firebaseAuth = FirebaseAuth.getInstance();
-        progressDialog = new ProgressDialog(getActivity());
-        final ArrayList<String> userinfo = new ArrayList<>();
-        final ArrayList<String> userkey = new ArrayList<>();
-        progressDialog.setMessage("Loading Contacts");
-        progressDialog.show();
-        reference = database.getReference().child(firebaseAuth.getUid()).child("friends");
-        reference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                String s;
-                for (DataSnapshot data : dataSnapshot.getChildren()) {
-                    for (DataSnapshot dataSnapshot1 : data.getChildren()) {
-                        s = dataSnapshot1.getKey();
-                        userinfo.add(s);
-                        userkey.add(dataSnapshot1.getValue().toString());
-                        Log.e(TAG, "onDataChange: " + dataSnapshot1.getKey());
-                    }
-                }
-                UserScreenAdapter nob = new UserScreenAdapter(userinfo, getActivity(), userkey);
-                progressDialog.dismiss();
-                recyclerView.setAdapter(nob);
-            }
+        progressDialog=new ProgressDialog(getActivity());
+        showChat();
+        //getSelfName();
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-
-        Date d = new Date();
-        SimpleDateFormat sdf = new SimpleDateFormat("hh:mm a");
-        String currentDateTimeString = sdf.format(d);
-        Log.e(TAG, "onCreateView: " + currentDateTimeString);
-        getSelfName();
         return view;
     }
 
@@ -115,6 +83,22 @@ public class UserScreen extends Fragment {
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
+            }
+        });
+    }
+    //----------
+    public void showChat()
+    {
+        progressDialog.setMessage("Loading Chats");
+        progressDialog.show();
+        UserChatListViewModel userChatListViewModel=new UserChatListViewModel();
+        userChatListViewModel.getChatList().observe(UserScreen.this, new Observer<List<UserChatList>>() {
+            @Override
+            public void onChanged(List<UserChatList> userChatLists) {
+                Log.e(TAG, "onChanged: "+"running till here" );
+                ChatListAdapter chatListAdapter=new ChatListAdapter(userChatLists,getActivity());
+                recyclerView.setAdapter(chatListAdapter);
+                progressDialog.dismiss();
             }
         });
     }
