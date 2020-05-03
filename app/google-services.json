@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "596581041325",
+    "firebase_url": "https://chatappatg.firebaseio.com",
+    "project_id": "chatappatg",
+    "storage_bucket": "chatappatg.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:596581041325:android:af16f8715d84a0cfa37224",
+        "android_client_info": {
+          "package_name": "com.messed.chatappatg"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "596581041325-qm4tusudtbpme05l83vd3klu2rphmeou.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDSxf-4lY-lp_AQ7q85kFeTH1uokwHQl0M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "596581041325-qm4tusudtbpme05l83vd3klu2rphmeou.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
