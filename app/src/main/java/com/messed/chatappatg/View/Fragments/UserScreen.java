@@ -1,4 +1,4 @@
-package com.messed.chatappatg.ViewModel.Fragments;
+package com.messed.chatappatg.View.Fragments;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
@@ -21,7 +21,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.messed.chatappatg.R;
-import com.messed.chatappatg.View.UserScreenAdapter;
+import com.messed.chatappatg.View.Adapters.UserScreenAdapter;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;

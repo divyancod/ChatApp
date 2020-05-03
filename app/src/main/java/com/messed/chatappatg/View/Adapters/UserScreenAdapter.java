@@ -1,4 +1,4 @@
-package com.messed.chatappatg.View;
+package com.messed.chatappatg.View.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,7 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.messed.chatappatg.ViewModel.Activities.ChattingInside;
+import com.messed.chatappatg.View.Acitivites.ChattingInside;
 import com.messed.chatappatg.R;
 
 import java.util.ArrayList;

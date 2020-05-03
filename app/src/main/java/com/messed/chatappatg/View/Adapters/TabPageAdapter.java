@@ -1,12 +1,12 @@
-package com.messed.chatappatg.View;
+package com.messed.chatappatg.View.Adapters;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
-import com.messed.chatappatg.ViewModel.Fragments.ChatScreen;
-import com.messed.chatappatg.ViewModel.Fragments.UserScreen;
+import com.messed.chatappatg.View.Fragments.ChatScreen;
+import com.messed.chatappatg.View.Fragments.UserScreen;
 
 public class TabPageAdapter extends FragmentStatePagerAdapter {
 

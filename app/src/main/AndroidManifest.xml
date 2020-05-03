@@ -11,17 +11,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ViewModel.Activities.GroupChatActivity"></activity>
-        <activity android:name=".ViewModel.Activities.ChattingInside" />
-        <activity android:name=".ViewModel.Activities.LoginPageActivity" />
-        <activity android:name=".ViewModel.Activities.FirstScreen">
+        <activity android:name=".View.Acitivites.GroupChatActivity"></activity>
+        <activity android:name=".View.Acitivites.ChattingInside" />
+        <activity android:name=".View.Acitivites.LoginPageActivity" />
+        <activity android:name=".View.Acitivites.FirstScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".ViewModel.Activities.MainActivity"
+            android:name=".View.Acitivites.MainActivity"
             android:theme="@style/AppTheme.NoActionBarNavBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

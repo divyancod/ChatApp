@@ -1,4 +1,4 @@
-package com.messed.chatappatg.ViewModel.Activities;
+package com.messed.chatappatg.View.Acitivites;
 
 import androidx.appcompat.app.AppCompatActivity;
 

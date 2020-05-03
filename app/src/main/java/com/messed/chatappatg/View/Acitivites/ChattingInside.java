@@ -1,4 +1,4 @@
-package com.messed.chatappatg.ViewModel.Activities;
+package com.messed.chatappatg.View.Acitivites;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,7 +20,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.messed.chatappatg.R;
-import com.messed.chatappatg.View.ChatScreenAdapterInside;
+import com.messed.chatappatg.View.Adapters.ChatScreenAdapterInside;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -131,6 +131,7 @@ public class ChattingInside extends AppCompatActivity {
                 }
                 ChatScreenAdapterInside nob = new ChatScreenAdapterInside(type1, info1, time1);
                 recyclerView.setAdapter(nob);
+
             }
 
             @Override
