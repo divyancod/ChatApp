@@ -2,6 +2,7 @@ package com.messed.chatappatg.View.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,11 +10,15 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
+import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.messed.chatappatg.Model.ChatInside;
 import com.messed.chatappatg.Model.UserChatList;
 import com.messed.chatappatg.View.Acitivites.ChattingInside;
 import com.messed.chatappatg.R;
+import com.messed.chatappatg.ViewModel.ChattingInsideViewModel;
 
 import java.util.List;
 
